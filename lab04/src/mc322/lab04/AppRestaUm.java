@@ -17,7 +17,12 @@ public class AppRestaUm
         // executa os comandos da forma a9:a9
         for (int i = 0; i < comandos.length; i++)
         {
-            tab.mover(comandos[i].substring(0, 2), comandos[i].substring(3, 5));
+            int iInicio, jInicio, iFim, jFim;
+            jInicio = Character.getNumericValue(comandos[i].charAt(0)) - Character.getNumericValue('a');
+            iInicio = Character.getNumericValue(comandos[i].charAt(1)) - Character.getNumericValue('1');
+            jFim = Character.getNumericValue(comandos[i].charAt(3)) - Character.getNumericValue('a');
+            iFim = Character.getNumericValue(comandos[i].charAt(4)) - Character.getNumericValue('1');
+            tab.mover(iInicio, jInicio, iFim, jFim);
             tab.apresenta();
             resultado[i] = tab.toString();
         }
@@ -27,6 +32,6 @@ public class AppRestaUm
 
     public static void main(String[] args)
     {
-        executaJogo("comandos.csv");
+        executaJogo("teste.csv");
     }
 }
