@@ -80,7 +80,7 @@ public class Tabuleiro
             }
         }
 
-        return res;
+        return res + "\n";
     }
     // Apresenta o estado atual do tabuleiro;
     public void apresenta()
@@ -88,7 +88,7 @@ public class Tabuleiro
         for(int i = 0; i < 7; i++)
         {
             System.out.printf("%d ", i + 1);
-            System.out.println(stringLinha(i));
+            System.out.print(stringLinha(i));
         }
         System.out.println("  abcdefg");
     }
