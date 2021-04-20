@@ -80,7 +80,7 @@ public class Tabuleiro
             }
         }
 
-        return res + "\n";
+        return res;
     }
     // Apresenta o estado atual do tabuleiro;
     public void apresenta()
