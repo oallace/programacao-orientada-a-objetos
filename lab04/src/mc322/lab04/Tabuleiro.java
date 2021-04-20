@@ -95,7 +95,14 @@ public class Tabuleiro
 
     public String toString()
     {
-        return "";
+        String res = "";
+
+        for(int i = 0; i < 7; i++)
+        {
+            res += stringLinha(i);
+        }
+
+        return res;
     }
 
 }
