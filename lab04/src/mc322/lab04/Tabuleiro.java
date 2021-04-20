@@ -40,6 +40,10 @@ public class Tabuleiro
     // Checa se o espaço informado é válido
     private boolean ehEspacoValido(int i, int j)
     {
+        if (i < 0 || i > 6 || j < 0 || j > 6)
+        {
+            return false;
+        }
         if (formaTabuleiro[i][j] == 1)
         {
             return true;
@@ -53,7 +57,35 @@ public class Tabuleiro
     // Checa se o movimento é válido
     private boolean ehMovimentoValido(int iInicio, int jInicio, int iFim, int jFim)
     {
+        if(posicoes[iInicio][jInicio] != null)
+            if (ehEspacoValido(iFim, jFim) && posicoes[iFim][jFim] == null)
+            {
+                System.out.println(1);
+                // movimento é horizontal
+                if(iInicio == iFim && (jInicio - jFim == 2 || jInicio - jFim == -2))
+                {
+                    System.out.println(2);
+                    if(posicoes[iInicio][(jInicio + jFim) / 2] != null)
+                    {
+                        System.out.println(3);
+                        return true;
+                    }
+                }
+                // movimento é vertical
+                else if(jInicio == jFim && (iInicio - iFim == 2 || iInicio - iFim == -2))
+                {
+                    System.out.println(4);
+                    if(posicoes[(iInicio + iFim) / 2][jInicio] != null)
+                    {
+                        System.out.println(5);
+                        return true;
+                    }
 
+                }
+            }
+        // inválido
+        System.out.println(6);
+        return false;
     }
 
     // Realiza o movimento indicado, quando possível. Caso contrário, não faz nada.
@@ -61,18 +93,18 @@ public class Tabuleiro
     {
         if (ehMovimentoValido(iInicio, jInicio, iFim, jFim))
         {
-            // Come a peça;
-            if (iInicio == iFim)
-            {
-                posicoes[iInicio][jInicio + 1] = null;
-            }
-            else if (jInicio == jFim)
-            {
-                posicoes[iInicio + 1][jInicio] = null;
-            }
             // realiza o salto:
             posicoes[iFim][jFim] = posicoes[iInicio][jInicio];
             posicoes[iInicio][jInicio] = null;
+            // Come a peça;
+            if (iInicio == iFim)
+            {
+                posicoes[iInicio][(jInicio + jFim) / 2] = null;
+            }
+            else if (jInicio == jFim)
+            {
+                posicoes[(iInicio + iFim) / 2][jInicio] = null;
+            }
         }
     }
 
@@ -96,7 +128,7 @@ public class Tabuleiro
             }
             else
             {
-                res += '-';
+                res += ' ';
             }
         }
 
