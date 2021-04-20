@@ -50,10 +50,30 @@ public class Tabuleiro
         }
     }
 
-    // Realiza o movimento indicado, quando possível. Caso contrário, não faz nada.
-    public void mover(String inicio, String fim)
+    // Checa se o movimento é válido
+    private boolean ehMovimentoValido(int iInicio, int jInicio, int iFim, int jFim)
     {
 
+    }
+
+    // Realiza o movimento indicado, quando possível. Caso contrário, não faz nada.
+    public void mover(int iInicio, int jInicio, int iFim, int jFim)
+    {
+        if (ehMovimentoValido(iInicio, jInicio, iFim, jFim))
+        {
+            // Come a peça;
+            if (iInicio == iFim)
+            {
+                posicoes[iInicio][jInicio + 1] = null;
+            }
+            else if (jInicio == jFim)
+            {
+                posicoes[iInicio + 1][jInicio] = null;
+            }
+            // realiza o salto:
+            posicoes[iFim][jFim] = posicoes[iInicio][jInicio];
+            posicoes[iInicio][jInicio] = null;
+        }
     }
 
     // Retorna uma string que representa a linha
