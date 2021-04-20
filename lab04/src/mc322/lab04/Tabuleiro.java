@@ -88,7 +88,7 @@ public class Tabuleiro
         for(int i = 0; i < 7; i++)
         {
             System.out.printf("%d ", i + 1);
-            System.out.print(stringLinha(i));
+            System.out.println(stringLinha(i));
         }
         System.out.println("  abcdefg");
     }
