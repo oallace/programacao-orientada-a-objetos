@@ -60,31 +60,25 @@ public class Tabuleiro
         if(posicoes[iInicio][jInicio] != null)
             if (ehEspacoValido(iFim, jFim) && posicoes[iFim][jFim] == null)
             {
-                System.out.println(1);
                 // movimento é horizontal
                 if(iInicio == iFim && (jInicio - jFim == 2 || jInicio - jFim == -2))
                 {
-                    System.out.println(2);
                     if(posicoes[iInicio][(jInicio + jFim) / 2] != null)
                     {
-                        System.out.println(3);
                         return true;
                     }
                 }
                 // movimento é vertical
                 else if(jInicio == jFim && (iInicio - iFim == 2 || iInicio - iFim == -2))
                 {
-                    System.out.println(4);
                     if(posicoes[(iInicio + iFim) / 2][jInicio] != null)
                     {
-                        System.out.println(5);
                         return true;
                     }
 
                 }
             }
         // inválido
-        System.out.println(6);
         return false;
     }
 
