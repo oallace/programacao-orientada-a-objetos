@@ -25,13 +25,13 @@ public class Tabuleiro
         for (int i = 0; i < 7; i++)
             for(int j = 0; j < 7; j++)
             {
-                if (ehEspacoValido(i, j) && (i != 3 && j != 3))
+                if (!ehEspacoValido(i, j) || (i == 3 && j == 3))
                 {
-                    posicoes[i][j] = new Peca();
+                    posicoes[i][j] = null;
                 }
                 else
                 {
-                    posicoes[i][j] = null;
+                    posicoes[i][j] = new Peca();
                 }
             }
         num_pecas =  32;
