@@ -4,6 +4,10 @@ public class Tabuleiro
 {
     Peca posicoes[][];
     int num_pecas;
+    /* Descreve a forma do tabuleiro:
+    1: espaço válido
+    0: espaço inválido
+    */
     private int formaTabuleiro[][] = {
         {0, 0, 1, 1, 1, 0, 0},
         {0, 0, 1, 1, 1, 0, 0},
@@ -52,15 +56,46 @@ public class Tabuleiro
 
     }
 
+    // Retorna uma string que representa a linha
+    private String stringLinha(int i)
+    {
+        String res = "";
+
+        for(int j = 0; j < 7; j++)
+        {
+            if(ehEspacoValido(i, j))
+            {
+                if(posicoes[i][j] != null)
+                {
+                    res += posicoes[i][j].apresenta();
+                }
+                else
+                {
+                    res += '-';
+                }
+            }
+            else
+            {
+                res += '-';
+            }
+        }
+
+        return res + "\n";
+    }
     // Apresenta o estado atual do tabuleiro;
     public void apresenta()
     {
-
+        for(int i = 0; i < 7; i++)
+        {
+            System.out.printf("%d ", i + 1);
+            System.out.print(stringLinha(i));
+        }
+        System.out.println("  abcdefg");
     }
 
     public String toString()
     {
-
+        return "";
     }
 
 }
