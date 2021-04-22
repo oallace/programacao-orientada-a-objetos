@@ -8,7 +8,7 @@ public class Tabuleiro
     1: espaço válido
     0: espaço inválido
     */
-    private int formaTabuleiro[][] = {
+    private static int formaTabuleiro[][] = {
         {0, 0, 1, 1, 1, 0, 0},
         {0, 0, 1, 1, 1, 0, 0},
         {1, 1, 1, 1, 1, 1, 1},
@@ -57,7 +57,7 @@ public class Tabuleiro
     // Checa se o movimento é válido
     private boolean ehMovimentoValido(int iInicio, int jInicio, int iFim, int jFim)
     {
-        if(posicoes[iInicio][jInicio] != null)
+        if(ehEspacoValido(iInicio, jInicio) && posicoes[iInicio][jInicio] != null)
             if (ehEspacoValido(iFim, jFim) && posicoes[iFim][jFim] == null)
             {
                 // movimento é horizontal
@@ -87,6 +87,7 @@ public class Tabuleiro
     {
         if (ehMovimentoValido(iInicio, jInicio, iFim, jFim))
         {
+            System.out.println("---\nMovimento realizado!\n---");
             // realiza o salto:
             posicoes[iFim][jFim] = posicoes[iInicio][jInicio];
             posicoes[iInicio][jInicio] = null;
@@ -99,6 +100,11 @@ public class Tabuleiro
             {
                 posicoes[(iInicio + iFim) / 2][jInicio] = null;
             }
+            num_pecas = num_pecas - 1;
+        }
+        else
+        {
+            System.out.println("---\nMovimento inválido!\n---");
         }
     }
 
@@ -131,6 +137,7 @@ public class Tabuleiro
     // Apresenta o estado atual do tabuleiro;
     public void apresenta()
     {
+        System.out.printf("Resta(m): %d\n", num_pecas);
         for(int i = 0; i < 7; i++)
         {
             System.out.printf("%d ", i + 1);
