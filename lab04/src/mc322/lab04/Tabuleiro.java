@@ -138,6 +138,7 @@ public class Tabuleiro
             System.out.print(stringLinha(i));
         }
         System.out.println("  abcdefg");
+        System.out.println();
     }
 
     public String toString()
