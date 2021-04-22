@@ -25,7 +25,7 @@ public class AppRestaUm
             System.out.printf("Source: %s\n", comandos[i].substring(0,2));
             jInicio = Character.getNumericValue(comandos[i].charAt(0)) - Character.getNumericValue('a');
             iInicio = Character.getNumericValue(comandos[i].charAt(1)) - Character.getNumericValue('1');
-            System.out.printf("Source: %s\n", comandos[i].substring(3,5));
+            System.out.printf("Target: %s\n", comandos[i].substring(3,5));
             jFim = Character.getNumericValue(comandos[i].charAt(3)) - Character.getNumericValue('a');
             iFim = Character.getNumericValue(comandos[i].charAt(4)) - Character.getNumericValue('1');
             // Realiza o movimento;
