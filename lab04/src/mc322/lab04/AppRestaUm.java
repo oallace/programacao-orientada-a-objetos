@@ -15,6 +15,8 @@ public class AppRestaUm
         comandos = csv.requestCommands();
         // inicia o vetor resultado:
         resultado = new String[comandos.length];
+        // apresenta o tabuleiro:
+        tab.apresenta();
         // executa os comandos da forma a9:a9
         for (int i = 0; i < comandos.length; i++)
         {
@@ -34,6 +36,13 @@ public class AppRestaUm
 
     public static void main(String[] args)
     {
+        executaJogo("testes/teste1.csv");
+        executaJogo("testes/teste2.csv");
+        executaJogo("testes/teste3.csv");
+        executaJogo("testes/teste4.csv");
+        executaJogo("testes/teste5.csv");
+        executaJogo("testes/teste6.csv");
+        executaJogo("testes/teste7.csv");
         executaJogo("testes/teste8.csv");
     }
 }
