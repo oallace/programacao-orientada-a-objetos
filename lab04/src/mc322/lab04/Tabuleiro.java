@@ -87,7 +87,6 @@ public class Tabuleiro
     {
         if (ehMovimentoValido(iInicio, jInicio, iFim, jFim))
         {
-            System.out.println("---\nMovimento realizado!\n---");
             // realiza o salto:
             posicoes[iFim][jFim] = posicoes[iInicio][jInicio];
             posicoes[iInicio][jInicio] = null;
@@ -101,10 +100,6 @@ public class Tabuleiro
                 posicoes[(iInicio + iFim) / 2][jInicio] = null;
             }
             num_pecas = num_pecas - 1;
-        }
-        else
-        {
-            System.out.println("---\nMovimento inválido!\n---");
         }
     }
 
@@ -137,7 +132,6 @@ public class Tabuleiro
     // Apresenta o estado atual do tabuleiro;
     public void apresenta()
     {
-        System.out.printf("Resta(m): %d\n", num_pecas);
         for(int i = 0; i < 7; i++)
         {
             System.out.printf("%d ", i + 1);
