@@ -39,14 +39,14 @@ public class AppRestaUm
 
     public static void main(String[] args)
     {
-        executaJogo("testes/teste1.csv");
-        executaJogo("testes/teste2.csv");
-        executaJogo("testes/teste3.csv");
-        executaJogo("testes/teste4.csv");
-        executaJogo("testes/teste5.csv");
-        executaJogo("testes/teste6.csv");
-        executaJogo("testes/teste7.csv");
-        executaJogo("testes/teste8.csv");
+        if (args.length == 1)
+        {
+            executaJogo(args[0]);
+        }
+        else
+        {
+            System.out.println("Você deve fornecer um arquivo de entrada!");
+        }
 
     }
 }
